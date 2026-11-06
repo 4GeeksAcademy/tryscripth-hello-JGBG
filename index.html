@@ -1,26 +1,82 @@
 <!doctype html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Hello World with Typescript</title>
+    <meta name="theme-color" content="#f3f5f2" />
+    <title>Cinema Seat Manager</title>
   </head>
-  <body class="min-h-screen bg-slate-100 text-slate-900">
-    <main class="mx-auto flex min-h-screen max-w-2xl flex-col items-center justify-center gap-6 p-6">
-      <h1 class="text-4xl font-bold tracking-tight">Hello World with Typescript</h1>
+  <body>
+    <div class="page-shell">
+      <header class="topbar">
+        <a class="brand" href="/" aria-label="Cinema Seat Manager, sala principal">
+          <span class="brand-mark" aria-hidden="true">C</span>
+          <span class="brand-name">CINEMA <span>SEAT MANAGER</span></span>
+        </a>
+        <span class="session-indicator"><span aria-hidden="true"></span> SALA 01 / LOCAL</span>
+      </header>
 
-      <section class="w-full max-w-md overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
-        <img
-          src="/rigo-baby.jpg"
-          alt="Hello Rigo"
-          class="h-64 w-full bg-slate-50 object-contain p-2"
-        />
-        <div class="p-5">
-          <h2 class="text-xl font-semibold text-slate-900">Hello Rigo</h2>
-          <p id="app" class="mt-2 text-sm text-slate-600"></p>
+      <main class="main-content">
+        <section class="page-heading" aria-labelledby="page-title">
+          <div>
+            <p class="eyebrow">CONTROL DE SALA <span>01</span></p>
+            <h1 id="page-title">Mapa de asientos</h1>
+          </div>
+          <p class="room-size">8 FILAS <span>/</span> 10 COLUMNAS</p>
+        </section>
+
+        <section class="overview" aria-label="Disponibilidad y leyenda">
+          <div class="stat-block stat-free">
+            <span class="stat-label">Libres</span>
+            <strong id="free-count">0</strong>
+            <span class="stat-unit">asientos</span>
+          </div>
+          <div class="stat-block stat-occupied">
+            <span class="stat-label">Ocupados</span>
+            <strong id="occupied-count">0</strong>
+            <span class="stat-unit">asientos</span>
+          </div>
+          <div class="legend" aria-label="Estados">
+            <span><i class="legend-dot legend-dot-free" aria-hidden="true"></i> Libre</span>
+            <span><i class="legend-dot legend-dot-occupied" aria-hidden="true"></i> Ocupado</span>
+            <span><i class="legend-dot legend-dot-suggested" aria-hidden="true"></i> Pareja</span>
+          </div>
+        </section>
+
+        <div class="workspace">
+          <section class="room-panel" aria-label="Mapa de la sala">
+            <div class="screen" aria-hidden="true"><span>PANTALLA</span></div>
+            <div class="map-scroll">
+              <div class="seat-map">
+                <span class="map-corner" aria-hidden="true"></span>
+                <div id="column-labels" class="column-labels" aria-hidden="true"></div>
+                <div id="row-labels" class="row-labels" aria-hidden="true"></div>
+                <div id="seat-grid" class="seat-grid" role="group" aria-label="Asientos de la sala"></div>
+              </div>
+            </div>
+          </section>
+
+          <aside class="action-panel" aria-labelledby="actions-title">
+            <div class="action-heading">
+              <p class="eyebrow">HERRAMIENTAS</p>
+              <h2 id="actions-title">Reservas</h2>
+            </div>
+            <button id="find-pair" class="find-button" type="button">
+              Buscar pareja libre
+              <span aria-hidden="true">&#8594;</span>
+            </button>
+            <p id="status-message" class="status-message" data-kind="info" role="status" aria-live="polite">
+              Sala lista para reservar.
+            </p>
+            <div class="panel-note">
+              <span class="note-index">01</span>
+              <p>La selección se actualiza en esta sala.</p>
+            </div>
+          </aside>
         </div>
-      </section>
-    </main>
+      </main>
+      <footer class="page-footer"><span>CINEMA SEAT MANAGER</span><span>80 ASIENTOS</span></footer>
+    </div>
     <script type="module" src="/src/main.ts"></script>
   </body>
 </html>

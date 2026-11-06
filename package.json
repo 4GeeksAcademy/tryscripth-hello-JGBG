@@ -7,7 +7,7 @@
   "scripts": {
     "start": "vite",
     "dev": "vite",
-    "console": "tsx src/main.ts",
+    "console": "tsx src/cinema-seat-manager.ts",
     "typecheck": "tsc --noEmit",
     "build": "tsc -b && vite build",
     "preview": "vite preview"
